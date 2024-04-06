@@ -1,19 +1,18 @@
 package za.ac.cput.util;
-import za.ac.cput.Domain.Contact;
 
-public class AdministratorHelper {
+import java.time.LocalDate;
+
+public class PaymentHelper {
     public static boolean isNullOrEmpty(String s){
         if (s == null || s.isEmpty()){
             return true;
         }
         return false;
     }
-    public static boolean isContactNullOrEmpty(Contact contact) {
-        if (contact == null) {
+    public  static boolean isDateNull(LocalDate date){
+        if(date == null){
             return true;
         }
-
         return false;
-
     }
 }

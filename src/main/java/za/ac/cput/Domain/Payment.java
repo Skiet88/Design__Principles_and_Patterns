@@ -8,6 +8,8 @@ public class Payment {
     private String empNumber;
     private String bookingID;
 
+    private double paymentAmount;
+
 
     private Payment() {
     }
@@ -16,6 +18,8 @@ public class Payment {
         this.dateOfPayment = paymentBuilder.dateOfPayment;
         this.empNumber = paymentBuilder.empNumber;
         this.bookingID = paymentBuilder.bookingID;
+        this.paymentAmount = paymentBuilder.paymentAmount;
+
 
     }
 
@@ -35,6 +39,9 @@ public class Payment {
         return bookingID;
     }
 
+    public Double getPaymentAmount(){
+        return paymentAmount;
+    }
     @Override
     public String toString() {
         return "Payment{" +
@@ -42,14 +49,16 @@ public class Payment {
                 ", dateOfPayment=" + dateOfPayment +
                 ", empNumber='" + empNumber + '\'' +
                 ", bookingID='" + bookingID + '\'' +
+                ", paymentAmount='" + paymentAmount + '\'' +
                 '}';
     }
 
-    private static class PaymentBuilder{
+    public static class PaymentBuilder{
         private String paymentID;
         private LocalDate dateOfPayment;
         private String empNumber;
         private String bookingID;
+        private double paymentAmount;
 
         public PaymentBuilder copy(Payment e) {
 
@@ -57,6 +66,7 @@ public class Payment {
             this.dateOfPayment = e.dateOfPayment;
             this.empNumber = e.empNumber;
             this.bookingID = e.bookingID;
+            this.paymentAmount = e.paymentAmount;
 
             return this;
         }
@@ -68,6 +78,10 @@ public class Payment {
 
         public PaymentBuilder setDateOfPayment(LocalDate dateOfPayment) {
             this.dateOfPayment = dateOfPayment;
+            return this;
+        }
+        public PaymentBuilder setPaymentAmount(Double paymentAmount) {
+            this.paymentAmount = paymentAmount;
             return this;
         }
 

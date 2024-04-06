@@ -3,6 +3,7 @@ import java.time.LocalDate;
 public class Booking {
     private String bookingID;
     private String customerID;
+    private  String jetRegNumber;
     private LocalDate date;
 
     private Booking() {
@@ -11,6 +12,7 @@ public class Booking {
         this.bookingID = bookingBulder.bookingID;
         this.customerID = bookingBulder.customerID;
         this.date = bookingBulder.date;
+        this.jetRegNumber = bookingBulder.jetRegNumber;
 
     }
 
@@ -22,6 +24,9 @@ public class Booking {
         return customerID;
     }
 
+    public String getJetRegNumber() {
+        return jetRegNumber;
+    }
     public LocalDate getDate() {
         return date;
     }
@@ -31,6 +36,7 @@ public class Booking {
         return "Booking{" +
                 "bookingID='" + bookingID + '\'' +
                 ", customerID='" + customerID + '\'' +
+                ", jetRegNumber='" + jetRegNumber + '\'' +
                 ", date=" + date +
                 '}';
     }
@@ -38,10 +44,16 @@ public class Booking {
     public static class BookingBulder{
         private String bookingID;
         private String customerID;
+
+        private String jetRegNumber;
         private LocalDate date;
 
         public BookingBulder setBookingID(String bookingID) {
             this.bookingID = bookingID;
+            return this;
+        }
+        public BookingBulder setJetRegNumber(String jetRegNumber) {
+            this.jetRegNumber = jetRegNumber;
             return this;
         }
 
@@ -54,6 +66,7 @@ public class Booking {
             this.bookingID = e.bookingID;
             this.customerID = e.customerID;
             this.date = e.date;
+            this.jetRegNumber = e.jetRegNumber;
 
             return this;
         }
