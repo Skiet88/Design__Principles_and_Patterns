@@ -12,8 +12,6 @@ public class AdministratorHelper {
         if (contact == null) {
             return true;
         }
-
         return false;
-
     }
 }

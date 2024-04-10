@@ -1,6 +1,12 @@
 package za.ac.cput.Domain;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+
+@Entity
 public class Jet {
+    @Id
     private String regNumber;
     private String model;
     private int  capacity;
@@ -11,7 +17,11 @@ public class Jet {
         this.capacity = jetBuilder.capacity;
     }
 
-    private String getRegNumber() {
+    protected Jet() {
+
+    }
+
+    public String getRegNumber() {
         return regNumber;
     }
 

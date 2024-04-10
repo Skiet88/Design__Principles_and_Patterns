@@ -6,7 +6,7 @@ import za.ac.cput.Domain.Customer;
 import za.ac.cput.util.CustomerHelper;
 
 public class CustomerFactory {
-    public Customer buildAdministrator(String customerNumber, String firstName, String lastName, String gender, Contact contact){
+    public static Customer buildCustomer(String customerNumber, String firstName, String lastName, String gender, Contact contact){
         if(CustomerHelper.isNullOrEmpty(customerNumber)|| CustomerHelper.isNullOrEmpty(gender)||CustomerHelper.isNullOrEmpty(firstName)||
                 CustomerHelper.isNullOrEmpty(lastName)||CustomerHelper.isContactNullOrEmpty(contact)){
             return null;

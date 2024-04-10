@@ -1,14 +1,20 @@
 package za.ac.cput.Domain;
 
-public class Customer {
+import jakarta.persistence.Embedded;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
+@Entity
+public class Customer {
+@Id
     private String customerNumber;
     private String firstName;
     private String lastName;
     private String gender;
+    @Embedded
     private Contact contact;
 
-    private Customer() {
+    protected Customer() {
 
     }
     private Customer(CustomerBuilder builder){
@@ -58,7 +64,7 @@ public class Customer {
         private String gender;
         private Contact contact;
 
-        public CustomerBuilder copy(CustomerBuilder e) {
+        public CustomerBuilder copy(Customer e) {
             this.customerNumber = e.customerNumber;
             this.firstName = e.firstName;
             this.lastName = e.lastName;
