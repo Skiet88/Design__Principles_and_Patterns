@@ -1,18 +1,23 @@
 package za.ac.cput.Domain;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
 import java.time.LocalDate;
+@Entity
 public class Booking {
+    @Id
     private String bookingID;
     private String customerID;
     private  String jetRegNumber;
     private LocalDate date;
 
-    private Booking() {
+    protected Booking() {
     }
-    private Booking(BookingBulder bookingBulder){
-        this.bookingID = bookingBulder.bookingID;
-        this.customerID = bookingBulder.customerID;
-        this.date = bookingBulder.date;
-        this.jetRegNumber = bookingBulder.jetRegNumber;
+    private Booking(BookingBuilder bookingBuilder){
+        this.bookingID = bookingBuilder.bookingID;
+        this.customerID = bookingBuilder.customerID;
+        this.date = bookingBuilder.date;
+        this.jetRegNumber = bookingBuilder.jetRegNumber;
 
     }
 
@@ -41,28 +46,28 @@ public class Booking {
                 '}';
     }
 
-    public static class BookingBulder{
+    public static class BookingBuilder{
         private String bookingID;
         private String customerID;
 
         private String jetRegNumber;
         private LocalDate date;
 
-        public BookingBulder setBookingID(String bookingID) {
+        public BookingBuilder setBookingID(String bookingID) {
             this.bookingID = bookingID;
             return this;
         }
-        public BookingBulder setJetRegNumber(String jetRegNumber) {
+        public BookingBuilder setJetRegNumber(String jetRegNumber) {
             this.jetRegNumber = jetRegNumber;
             return this;
         }
 
-        public BookingBulder setCustomerID(String customerID) {
+        public BookingBuilder setCustomerID(String customerID) {
             this.customerID = customerID;
             return this;
         }
 
-        public BookingBulder copy(Booking e) {
+        public BookingBuilder copy(Booking e) {
             this.bookingID = e.bookingID;
             this.customerID = e.customerID;
             this.date = e.date;
@@ -71,7 +76,7 @@ public class Booking {
             return this;
         }
 
-        public BookingBulder setDate(LocalDate date) {
+        public BookingBuilder setDate(LocalDate date) {
             this.date = date;
 
             return this;

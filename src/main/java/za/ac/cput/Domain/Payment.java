@@ -1,17 +1,24 @@
 package za.ac.cput.Domain;
 
-import java.time.LocalDate;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.IdClass;
 
+import java.time.LocalDate;
+@Entity
+@IdClass(PaymentID.class)
 public class Payment {
     private String paymentID;
     private LocalDate dateOfPayment;
+    @Id
     private String empNumber;
+    @Id
     private String bookingID;
 
     private double paymentAmount;
 
 
-    private Payment() {
+    protected Payment() {
     }
     private Payment(PaymentBuilder paymentBuilder) {
         this.paymentID = paymentBuilder.paymentID;

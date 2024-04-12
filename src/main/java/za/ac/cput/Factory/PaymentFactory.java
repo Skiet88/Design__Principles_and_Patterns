@@ -14,7 +14,8 @@ public class PaymentFactory {
         return new Payment.PaymentBuilder()
                 .setPaymentID(paymentID)
                 .setDateOfPayment(date)
-                .setBookingID(customerNumber)
+                .setEmpNumber(customerNumber)
+
                 .setBookingID(bookingID)
                 .setPaymentAmount(paymentAmount)
                 .build();

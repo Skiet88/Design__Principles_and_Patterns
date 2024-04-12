@@ -12,7 +12,7 @@ public class BookingFactory {
             return null;
 
         }
-        return new Booking.BookingBulder()
+        return new Booking.BookingBuilder()
                 .setBookingID(bookingID)
                 .setCustomerID(customerNumber)
                 .setJetRegNumber(jetRegNumber)

@@ -10,6 +10,8 @@ import java.util.List;
 @Service
 public class CustomerService implements ICustomerService {
     private CustomerRepository repository;
+
+
     @Autowired
     public CustomerService(CustomerRepository repository){
         this.repository = repository;
@@ -18,6 +20,7 @@ public class CustomerService implements ICustomerService {
     @Override
     public Customer create(Customer customer) {
         return repository.save(customer);
+
     }
 
     @Override
@@ -27,6 +30,7 @@ public class CustomerService implements ICustomerService {
 
     @Override
     public Customer update(Customer customer) {
+        repository.deleteById(customer.getcustomerNumber());
         return repository.save(customer);
 
 //        String customerNo = customer.getcustomerNumber();
